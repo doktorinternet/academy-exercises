@@ -1,6 +1,7 @@
 package com.company;
 
 import java.io.*;
+import java.util.InputMismatchException;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 
@@ -93,6 +94,22 @@ public class ToolBox {
             }
         }
         return i;
+    }
+
+    public int getInt(){
+        int x = 0;
+        Scanner input = new Scanner(System.in);
+        try{
+            System.out.print("Please enter an integer and press return: ");
+            x = input.nextInt();
+        }catch(InputMismatchException e){
+            System.out.println("Whoops, that wasnt an integer, try again:");
+            return getInt();
+        }catch (NoSuchElementException e){
+            System.out.println("Vafan händer här");
+            return getInt();
+        }
+        return x;
     }
 
     public static int [] sortArray(int [] input){

@@ -8,6 +8,7 @@ import com.company.week1.day4.terminal.ChessBoard;
 import com.company.week1.day4.Exercise6;
 import com.company.week1.day4.Exercise7;
 import com.company.week1.day4.terminal.RandomBoard;
+import com.company.week2.day1.Module8;
 
 import java.io.FileNotFoundException;
 
@@ -18,7 +19,7 @@ public class Main {
     static String [] file = {"C:\\Users\\Administrator\\IdeaProjects\\Exercises\\src\\com\\company\\hello.txt",
                             "c:\\workspace\\temp\\testwriter.txt"};
 
-    static int runtime = 10;
+    static int runtime = 13;
     static int alternative = 9;
 
     public static void main(String[] args)throws FileNotFoundException {
@@ -45,10 +46,11 @@ public class Main {
                     BinaryToInt.toIntV2("00001111");
                     BinaryToInt.toIntV2("1111111111111111");
                     break;
-            case 9:
-                ChessBoard.run(); break;
-            case 10:
-                RandomBoard.run(); break;
+            case 9: ChessBoard.run(); break;
+            case 10: RandomBoard.run(); break;
+            case 11: Exercise7.sumOfNumbers(); break;
+            case 12: Module8.ex8_1_2(); break;
+            case 13: Module8.ex8_1_5(); break;
         }
     }
 }

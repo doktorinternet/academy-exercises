@@ -1,6 +1,7 @@
 package com.company.week1.day4;
 
 import com.company.ToolBox;
+import java.util.Scanner;
 
 public class Exercise7 {
 
@@ -81,5 +82,59 @@ public class Exercise7 {
 
     public static void printArray(int [] input) {
         for (int item : input) System.out.println(item);
+    }
+
+    public static void sumOfNumbers(){ //return type int
+
+        System.out.println("Exit program by typing a letter instead of a number\n");
+        do {
+            // Reset variables each run
+            int result, min = 0, max;
+            String input;
+            Scanner read;
+
+            // Read user input
+            System.out.print("Enter one or two numbers, separated by space: ");
+            read = new Scanner(System.in);
+            input = read.nextLine();
+
+            // Check if user is done
+            if (!omniTool.isANumber(input.substring(0,1))) {
+                System.out.println("Input is not a number, terminating application");
+                System.exit(0);
+            }
+
+            read = new Scanner(input);
+            result = 0;
+            max = Integer.parseInt(read.next());
+
+            // Check if user entered two numbers
+            if (read.hasNext()){
+                min = Integer.parseInt(read.next());
+
+                // Make sure max contains the highest of the two
+                if (min > max){
+                    int tmp = min;
+                    min = max;
+                    max = tmp;
+                }
+            }
+
+            StringBuilder print = new StringBuilder("Sequence: ");
+
+            // Loop calculation
+            for (; min <= max; min++){
+                result += min;
+                if( min < max)print.append(min).append(" + ");
+                if( min == max)print.append(min).append(" = ").append(result);
+            }
+
+            System.out.println(print);
+            System.out.println();
+
+            read.close();
+        }while (true);//!(new Scanner(System.in).next().equalsIgnoreCase("q")));
+
+        //return result;
     }
 }
