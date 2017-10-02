@@ -1,8 +1,8 @@
 package com.company.week2.day1;
 
-
 public class Module8 {
 
+    static com.company.ToolBox tb = com.company.ToolBox.getOmniTool();
     private static char[] a = {'J', 'a', 'v', 'a', 'R', 'u', 'l', 'e', 's'};
 
     public static void ex8_1_1(){
@@ -21,20 +21,21 @@ public class Module8 {
     }
 
     public static void ex8_1_3(){
-        String javaR = "";
-
         // W/o StringBuilder
+        String javaR = "";
         for (int i = 0; i < a.length; i++){
             javaR = javaR.concat(a[i] + "");
         }
 
         StringBuilder builder = new StringBuilder();
-
         for ( int i = 0; i < a.length; i++){
             builder.append(a[i]);
         }
 
+        String s = new String(a);
+
         System.out.println("String: ".concat(javaR));
+        System.out.println("new String: ".concat(s));
         System.out.println("Builder: ".concat(builder.toString()));
     }
 
@@ -53,7 +54,7 @@ public class Module8 {
         }
         System.out.println(name);
         System.out.println();
-    }
+    } // Använd toCharArray(String s);
 
     public static void ex8_1_5(){
 
@@ -71,9 +72,52 @@ public class Module8 {
             ints[i] = Integer.parseInt(str.charAt(i) + "");
             System.out.print(ints[i]);
         }
+    } // Använd split(",");
+
+    public static void ex8_2_1(){ // print ASCII Table
+
+        int start = 33;
+        char c;
+        String hex = "";
+        System.out.println("Printing ASCII values: ");
+        for(int row = 0; row <= 15; row++){
+            for(int i = row; i <= 256; i = i + 15) {
+                c = (char) start;
+                System.out.printf("%-5d %-5c", start, c);
+                start++;
+            }
+            System.out.println();
+        }
     }
 
-    public static void ex8_2_1(){
-        
+
+    static String getCorrectColor(int x){
+        String black = "#ffffff", white = "#cccccc";
+        if(tb.isEven(x)) return black;
+        else return white;
+    }
+
+    public static void printHTML(){
+
+        int cells = 2, rows = 10;
+
+        StringBuilder HTML = new StringBuilder();
+        HTML.append("<table>\n");
+        for ( int x = 0; x < rows; x++) {
+            HTML.append("\t<tr bgcolor=\"")
+                .append(getCorrectColor(x))
+                .append("\">\n");
+            for(int i = 0; i <= cells; i++){
+                HTML.append("\t\t<td>")
+                    .append("Row ")
+                    .append(x+1)
+                    .append(" cell ")
+                    .append(i+1)
+                    .append("</td>\n");
+            }
+            HTML.append("\t</tr>\n");
+        }
+        HTML.append("</table>");
+        System.out.println(HTML);
     }
 }

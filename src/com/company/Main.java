@@ -19,7 +19,7 @@ public class Main {
     static String [] file = {"C:\\Users\\Administrator\\IdeaProjects\\Exercises\\src\\com\\company\\hello.txt",
                             "c:\\workspace\\temp\\testwriter.txt"};
 
-    static int runtime = 13;
+    static int runtime = 15;
     static int alternative = 9;
 
     public static void main(String[] args)throws FileNotFoundException {
@@ -51,6 +51,8 @@ public class Main {
             case 11: Exercise7.sumOfNumbers(); break;
             case 12: Module8.ex8_1_2(); break;
             case 13: Module8.ex8_1_5(); break;
+            case 14: Module8.ex8_2_1(); break;
+            case 15: Module8.printHTML(); break;
         }
     }
 }

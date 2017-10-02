@@ -15,7 +15,7 @@ public class RandomBoard {
 
     // sätt storlek på array, detta täckte min skärm. Delay är hur ofta den ska rita om, håll inne valfri tangent för
     // att köra. Hittade ingen metod för att sätta terminalens fönsterstorlek, men går att maximera under körning
-    static int xCells = 170, yCells = 50, delay = 150;
+    static int xCells = 100, yCells = 30, delay = 50;
 
     private static Terminal terminal = TerminalFacade.createTerminal(System.in, System.out, Charset.forName("UTF8"));
     private static int[][] board = new int[xCells][yCells];
@@ -30,17 +30,26 @@ public class RandomBoard {
         for(int i = 0; i<(xCells*2); i++){
             int x = rand.nextInt(xCells);
             int y = rand.nextInt(yCells);
-            board[x][y] = rand.nextInt(256);
+            board[x][y] = rand.nextInt(1);
 
         }
 
         for (int xAxis = 0; xAxis < xCells; xAxis++) {
             for (int yAxis = 0; yAxis < yCells; yAxis++) {
+
                 terminal.moveCursor(xAxis,yAxis);
-                terminal.moveCursor(xAxis, yAxis);
                 terminal.applyForegroundColor(board[xAxis][yAxis]);
                 terminal.putCharacter('\u2588');
+               /* for(int i = 0; i < 3; i++){
+                    xAxis
+                    terminal.moveCursor(xAxis,yAxis);
+                    terminal.applyForegroundColor(board[xAxis][yAxis]);
+                    terminal.putCharacter('\u2588');
 
+                }
+                terminal.moveCursor(xAxis,yAxis);
+                terminal.applyForegroundColor(board[xAxis][yAxis]);
+                terminal.putCharacter('\u2588');*/
             }
         }
     }
@@ -62,7 +71,7 @@ public class RandomBoard {
             for (int y = 1; y < yCells-1; y++) {
                 for (int x = 1; x < xCells-1; x++) {
                     int color = 0;
-                    color += board[x - 1][y - 1];
+                    color += board[x - 1][y - 1]; //
                     color += board[x + 1][y - 1];
                     color += board[x ][y - 1];
                     color += board[x - 1][y];
@@ -86,7 +95,7 @@ public class RandomBoard {
                     System.exit(0);
                 }
 
-                key =terminal.readInput();
+                key = terminal.readInput();
                 board[xx][yy] = rand.nextInt(256);
 
             } while(key == null); }
