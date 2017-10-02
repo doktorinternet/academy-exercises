@@ -1,5 +1,7 @@
 package com.company.week2.day1;
 
+import java.util.Random;
+
 public class Module8 {
 
     static com.company.ToolBox tb = com.company.ToolBox.getOmniTool();
@@ -119,5 +121,21 @@ public class Module8 {
         }
         HTML.append("</table>");
         System.out.println(HTML);
+    }
+
+    public static void randomTest(){
+        Random rand = new Random(-229985452);
+        for(int i=0;i<5;i++) {
+            int r=96 + rand.nextInt(27);
+            char c = (char)r;
+            System.out.print(c);
+        }
+        rand = new Random(-147909649);
+        for(int i=0;i<5;i++) {
+            int r=96 + rand.nextInt(27);
+            char c = (char)r;
+            System.out.print(c);
+        }
+
     }
 }

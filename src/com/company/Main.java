@@ -9,6 +9,8 @@ import com.company.week1.day4.Exercise6;
 import com.company.week1.day4.Exercise7;
 import com.company.week1.day4.terminal.RandomBoard;
 import com.company.week2.day1.Module8;
+import com.company.week2.day1.Module9;
+import com.company.week2.day1.Receipt;
 
 import java.io.FileNotFoundException;
 
@@ -19,7 +21,7 @@ public class Main {
     static String [] file = {"C:\\Users\\Administrator\\IdeaProjects\\Exercises\\src\\com\\company\\hello.txt",
                             "c:\\workspace\\temp\\testwriter.txt"};
 
-    static int runtime = 15;
+    static int runtime = 18;
     static int alternative = 9;
 
     public static void main(String[] args)throws FileNotFoundException {
@@ -46,13 +48,28 @@ public class Main {
                     BinaryToInt.toIntV2("00001111");
                     BinaryToInt.toIntV2("1111111111111111");
                     break;
-            case 9: ChessBoard.run(); break;
-            case 10: RandomBoard.run(); break;
-            case 11: Exercise7.sumOfNumbers(); break;
-            case 12: Module8.ex8_1_2(); break;
-            case 13: Module8.ex8_1_5(); break;
-            case 14: Module8.ex8_2_1(); break;
-            case 15: Module8.printHTML(); break;
+            case 9: ChessBoard.run();
+                    break;
+            case 10: RandomBoard.run();
+                     break;
+            case 11: Exercise7.sumOfNumbers();
+                     break;
+            case 12: Module8.ex8_1_2();
+                     break;
+            case 13: Module8.ex8_1_5();
+                     break;
+            case 14: Module8.ex8_2_1();
+                     break;
+            case 15: Module8.printHTML();
+                     break;
+
+            case 16: Receipt receipt = new Receipt();
+                receipt.printNicely();
+                break;
+            case 17: Module8.randomTest();
+                break;
+            case 18: Module9.scheduling();
+                break;
         }
     }
 }
