@@ -7,7 +7,7 @@ public class Exercise7 {
 
     public static int[] input = {1, 4, 5, 7, 20000, -511, 100, -200, 400};
 
-    static ToolBox omniTool = com.company.ToolBox.getOmniTool();
+    static ToolBox omniTool = ToolBox.getOmniTool();
 
     public static void outPutKeyValuesOf(int [] input){
 
@@ -34,6 +34,14 @@ public class Exercise7 {
         return new int[]{sum, highest, lowest};
     }
 
+    private static int sumOfArray(int[] input){
+        int sum = 0;
+        for (int i : input){
+            sum += i;
+        }
+        return sum;
+    }
+
     private static int [] sortArray(int [] input){
         int remember;
         // Find the lowest integer in array
@@ -48,14 +56,6 @@ public class Exercise7 {
         }
 
         return input;
-    }
-
-    private static int sumOfArray(int[] input){
-        int sum = 0;
-        for (int i : input){
-            sum += i;
-        }
-        return sum;
     }
 
     public static void findEven(int [] input){

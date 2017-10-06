@@ -6,15 +6,13 @@ import java.util.Scanner;
 
 public class Receipt {
 
-    static final double foodTax = 1.1, normalTax = 1.25;
+    private static final double foodTax = 1.1, normalTax = 1.25;
 
     private int quantity;
     private double incTaxPrice, amountTax, exTaxPrice, pricePerUnit;
     private String productName;
 
-    private boolean foodItem;
-
-    //com.company.ToolBox tb = com.company.ToolBox.getOmniTool();
+    private boolean isFoodItem;
 
     public static void main(String[] args) {
     }
@@ -28,7 +26,7 @@ public class Receipt {
         System.out.print("Enter amount of items: ");
         setQuantity(Integer.parseInt(read.nextLine().trim()));
         System.out.print("Is the item a food? (y/n) ");
-        setFoodItem(read.nextLine());
+        setIsFoodItem(read.nextLine());
         calculateReceipt();
     }
 
@@ -57,8 +55,8 @@ public class Receipt {
 
     private void setQuantity(int q){quantity = q;}
 
-    private void setFoodItem(String f){
-        foodItem = f.equals("y");
+    private void setIsFoodItem(String f){
+        isFoodItem = f.equals("y");
     }
 
     private void setTotalPrice(){
@@ -66,7 +64,7 @@ public class Receipt {
     }
 
     private void setIncTaxPrice(){
-        if(foodItem) {this.incTaxPrice = exTaxPrice * foodTax;}
+        if(isFoodItem) {this.incTaxPrice = exTaxPrice * foodTax;}
         else {this.incTaxPrice = this.exTaxPrice * normalTax;}
         this.amountTax = this.incTaxPrice - this.exTaxPrice;
     }

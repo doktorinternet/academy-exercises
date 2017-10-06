@@ -1,10 +1,12 @@
 package com.company.week2.day1;
 
+import com.company.ToolBox;
+
 import java.util.Random;
 
 public class Module8 {
 
-    static com.company.ToolBox tb = com.company.ToolBox.getOmniTool();
+    static ToolBox tb = ToolBox.getOmniTool();
     private static char[] a = {'J', 'a', 'v', 'a', 'R', 'u', 'l', 'e', 's'};
 
     public static void ex8_1_1(){

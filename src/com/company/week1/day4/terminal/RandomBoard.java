@@ -4,7 +4,7 @@ import com.company.ToolBox;
 import com.googlecode.lanterna.*;
 import com.googlecode.lanterna.input.Key;
 import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.TerminalSize;
+
 import java.nio.charset.Charset;
 import java.util.Random;
 
@@ -15,7 +15,7 @@ public class RandomBoard {
 
     // sätt storlek på array, detta täckte min skärm. Delay är hur ofta den ska rita om, håll inne valfri tangent för
     // att köra. Hittade ingen metod för att sätta terminalens fönsterstorlek, men går att maximera under körning
-    static int xCells = 100, yCells = 30, delay = 50;
+    static int xCells = 150, yCells = 100, delay = 50;
 
     private static Terminal terminal = TerminalFacade.createTerminal(System.in, System.out, Charset.forName("UTF8"));
     private static int[][] board = new int[xCells][yCells];
@@ -60,7 +60,7 @@ public class RandomBoard {
             //Add one random color to the board
             int xx = rand.nextInt(xCells);
             int yy = rand.nextInt(yCells);
-            board[xx][yy]= rand.nextInt(1); // rand.nextInt(255);
+            board[xx][yy]= rand.nextInt(1); // rand.nextInt(255); // 256
 
 
             drawGrid();

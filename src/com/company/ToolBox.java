@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class ToolBox {
 
-    public static ToolBox omniTool = new ToolBox();
+    private static ToolBox omniTool = new ToolBox();
 
     public static ToolBox getOmniTool() {
         return omniTool;
@@ -34,6 +34,10 @@ public class ToolBox {
             }
         }
         System.out.println(indata);
+    }
+
+    public void printArray(int [] input) {
+        for (int item : input) System.out.println(item);
     }
 
     public void printToFile(String filePath){
@@ -124,7 +128,6 @@ public class ToolBox {
                 }
             }
         }
-
         return input;
     }
 

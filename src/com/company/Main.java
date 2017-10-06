@@ -1,7 +1,6 @@
 package com.company;
 
 import com.company.week1.day2.Exercises1to4;
-import com.company.week1.day2.challenge1.Calculator;
 import com.company.week1.day3.Exercise5;
 import com.company.week1.day4.BinaryToInt;
 import com.company.week1.day4.terminal.ChessBoard;
@@ -11,6 +10,13 @@ import com.company.week1.day4.terminal.RandomBoard;
 import com.company.week2.day1.Module8;
 import com.company.week2.day1.Module9;
 import com.company.week2.day1.Receipt;
+import com.company.week2.day2.ArrayHelper;
+import com.company.week2.day2.BubbleSort;
+import com.company.week2.day2.LottoGenerator;
+import com.company.week2.day2.SearchUsers;
+import com.company.week2.day3.Objects;
+import com.company.week2.day3.bank.BankMain;
+import com.company.week2.day3.car.Car;
 
 import java.io.FileNotFoundException;
 
@@ -21,26 +27,57 @@ public class Main {
     static String [] file = {"C:\\Users\\Administrator\\IdeaProjects\\Exercises\\src\\com\\company\\hello.txt",
                             "c:\\workspace\\temp\\testwriter.txt"};
 
-    static int runtime = 18;
+    static int runtime = 6;
     static int alternative = 9;
+    static int iterations = 20;
 
     public static void main(String[] args)throws FileNotFoundException {
+        int [] test = {10, 20, 30, -59};
+        BubbleSort bubble = new BubbleSort();
+        LottoGenerator lg = new LottoGenerator();
+        ArrayHelper arrayHelper = new ArrayHelper();
+        Timer timer = new Timer();
+        SearchUsers userSearch = new SearchUsers();
 
         switch (runtime){
-            case 0: run.readFile(file[0]);
+
+            case 0:
+                    System.out.println(arrayHelper.sumArray(test));
+                    System.out.println(arrayHelper.minNumber(test));
+                    System.out.println(arrayHelper.maxNumber(test));
                     break;
-            case 1: run.printToFile(file[1]);
+
+            case 1:
+                for(int i = 0; i < iterations; i++){
+                    for (int p: lg.getRandomNumbers(7, 35)){
+                        System.out.printf("%2d   ", p);
+                    }
+                    System.out.println();
+            }
+            break;
+            case 2:
+
+                lg = new LottoGenerator();
+                timer.startTimer();
+                int [] arr = bubble.sortArray(lg.getRandomNumbers(1000, 1000));
+                for (int p = 0; p <  arr.length; p++){
+                    System.out.printf("%3d ", arr[p]);
+                    if (p % 15 == 0) System.out.println();
+                }
+                timer.endTimer();
+                timer.printTime("while generating");
+                break;
+
+//region Cases
+            case 3: userSearch.initUsers();
+                break;
+            case 4: Objects.run();
                     break;
-            case 2: run.scannerExercise();
+            case 5: Car.run();
                     break;
-            case 3: Calculator.doCalculation();
-                    break;
-            case 4: Exercise5.run(alternative);
-                    break;
-            case 5: Exercise6.printColorStrings('a');
-                    break;
-            case 6: Exercise7.outPutKeyValuesOf(Exercise7.input);
-                    break;
+            case 6:
+                BankMain.run();
+                break;
             case 7: Exercise7.findEven(Exercise7.input);
                     break;
             case 8: BinaryToInt.toIntV2("10000000");
@@ -68,8 +105,9 @@ public class Main {
                 break;
             case 17: Module8.randomTest();
                 break;
-            case 18: Module9.scheduling();
+            case 18: Module9.period();
                 break;
+                //endregion
         }
     }
 }
